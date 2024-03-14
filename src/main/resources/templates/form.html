@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Form Page</title>
+<link rel="stylesheet" th:href="@{../css/styles.css}">
+</head>
+<body>
+<div class="container">
+    <h2>Form</h2>
+    
+    <div th:if="${message != null}" class="message">
+    	[[${message}]]
+    </div>
+    
+    <form 
+    th:action="@{/form}" 
+    method="post"
+    role="form"
+    th:object="${user}">
+       
+        <label for="name">Name: </label>
+        <input th:field="*{name}" type="text" id="name" name="name" placeholder="Enter your Name.." required>
+        
+        <label for="age">Age: </label>
+        <input th:field="*{age}"  type="number" id="age" name="age" placeholder="Enter your Age" required>
+        
+        <label for="street">Street: </label>
+        <input th:field="*{street}" type="text" id="street" name="street" placeholder="Enter your Street" required>
+        
+        <label for="city">City: </label>
+        <input th:field="*{city}" type="text" id="city" name="city" placeholder="Enter your City" required>
+        
+        <label for="state">State: </label>
+        <input th:field="*{state}" type="text" id="state" name="state" placeholder="Enter your State" required>
+        
+        <label for="zipCode">ZipCode: </label>
+        <input th:field="*{zipCode}" type="text" id="zipcode" name="zipcode" placeholder="Enter your Zipcode" required>
+        
+        <label for="country">Country: </label>
+        <input th:field="*{country}" type="text" id="country" name="country" placeholder="Enter your Country" required>
+        
+        <label>Gender:</label>
+      <input th:field="*{gender}" type="radio" id="gender" name="gender" th:value="male">
+      <label for="gender">Male</label>
+      <input th:field="*{gender}" type="radio" id="gender" name="gender" th:value="female">
+      <label for="gender">Female</label>
+      <input th:field="*{gender}" type="radio" id="gender" name="gender" th:value="other">
+      <label for="gender">Other</label>
+		
+		<label for="dob">Date of Birth:</label>
+        <input th:field="*{dob}" type="date" id="dob" name="dob" required>
+        
+        <input type="submit" value="Submit">
+    </form>
+</div>
+</body>
+</html>
